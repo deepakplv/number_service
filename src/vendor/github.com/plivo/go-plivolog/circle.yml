@@ -1,0 +1,22 @@
+machine:
+  environment:
+    IMPORT_PATH: "/home/ubuntu/.go_workspace/src"
+    APP_PATH: "$IMPORT_PATH/$CIRCLE_PROJECT_REPONAME"
+
+dependencies:
+  pre:
+    - go get -u github.com/alecthomas/gometalinter
+    - gometalinter --install
+  override:
+    - sudo add-apt-repository ppa:masterminds/glide -y
+    - sudo apt-get update
+    - sudo apt-get install glide -y
+
+test:
+  pre:
+    - mkdir -p "$IMPORT_PATH"
+    - ln -sf "$(pwd)" "$APP_PATH"
+    - cd "$APP_PATH" && glide install
+  override:
+    - gometalinter --exclude=gotype --fast --vendor --deadline=60s ./...
+    - cd "$APP_PATH" && go test -cover $(glide nv)

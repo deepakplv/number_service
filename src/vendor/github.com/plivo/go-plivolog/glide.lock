@@ -1,0 +1,19 @@
+hash: 87e7de0d550b881b2c87685fe04306c5dcf9de5d1e1f7624fcb545423922bb50
+updated: 2017-10-13T19:47:42.663396163+05:30
+imports:
+- name: github.com/rifflock/lfshook
+  version: 6844c808343cb8fa357d7f141b1b990e05d24e41
+- name: github.com/sirupsen/logrus
+  version: f006c2ac4710855cf0f916dd6b77acf6b048dc6e
+  subpackages:
+  - hooks/syslog
+- name: golang.org/x/crypto
+  version: 9419663f5a44be8b34ca85f08abc5fe1be11f8a3
+  subpackages:
+  - ssh/terminal
+- name: golang.org/x/sys
+  version: 76cc09b634294339fa19ec41b5f2a0b3932cea8b
+  subpackages:
+  - unix
+  - windows
+testImports: []

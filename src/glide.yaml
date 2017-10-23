@@ -1,0 +1,10 @@
+package: .
+import:
+- package: github.com/labstack/echo
+  subpackages:
+  - middleware
+- package: github.com/plivo/go-plivolog
+  subpackages:
+  - plivolog
+- package: github.com/sirupsen/logrus
+- package: github.com/spf13/viper
